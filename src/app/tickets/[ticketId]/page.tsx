@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { initialTickets } from "@/data";
 import { ticketsPath } from "@/paths";
 import { Link } from "lucide-react";
+import { TicketItem } from "@/features/ticket/components/ticket-item";
+
 type TicketProps = {
   params: Promise<{
     ticketId: string;
@@ -24,9 +26,8 @@ const Ticket = async ({ params }: TicketProps) => {
     );
   }
   return (
-    <div>
-      <h2>{ticket?.title}</h2>
-      <p>{ticket?.content}</p>
+    <div className="flex justify-center animate-fade-from-top">
+      <TicketItem ticket={ticket} isDetail />
     </div>
   );
 };
