@@ -1,26 +1,17 @@
-import { initialTickets } from "@/data";
-import { Separator } from "@/components/ui/separator"
 import { Heading } from "@/components/heading";
-import { TicketItem } from "@/features/ticket/components/ticket-item";
+import { Suspense } from "react";
+import { TicketList } from "@/features/ticket/components/ticket-list";
+import Spinner from "@/components/spinner";
 
-const Tickets = () => {
+const TicketsPage = async () => {
   return (
-    <>
-      <div className="flex-1 flex flex-col gap-y-8">
-        <Heading title="Tickets" description="List of tickets" />
-      <Separator />
-      </div>
-      <div className="flex-1 flex flex-col items-center gap-y-4 animate-fade-from-top mt-5">
-        {initialTickets.map((ticket) => {
-          return (
-            <>
-              <TicketItem key={ticket.id} ticket={ticket} />
-            </>
-          );
-        })}
-      </div>
-    </>
+    <div className="flex-1 flex flex-col gap-y-8">
+      <Heading title="Tickets" description="All your tickets at one place" />
+      <Suspense fallback={<Spinner />}>
+        <TicketList />
+      </Suspense>
+    </div>
   );
 };
 
-export default Tickets;
+export default TicketsPage;
