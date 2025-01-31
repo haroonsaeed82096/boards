@@ -10,10 +10,11 @@
     "lint-fix": "next lint --fix",
     "type": "tsc --noEmit",
     "postinstall": "prisma generate",
-    "prisma-seed":"tsx prisma/seeds.ts"
+    "prisma-seed": "tsx prisma/seeds.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.3.0",
+    "@radix-ui/react-label": "^2.1.1",
     "@radix-ui/react-separator": "^1.1.1",
     "@radix-ui/react-slot": "^1.1.1",
     "class-variance-authority": "^0.7.1",
